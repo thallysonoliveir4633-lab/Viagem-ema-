@@ -2,100 +2,97 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ônibus 2 - EMA / ATALAIA</title>
+<title>Ônibus 2</title>
 
 <style>
-
 body {
-font-family: Arial;
-text-align: center;
-background: #f2f2f2;
+  font-family: Arial;
+  text-align: center;
 }
 
-h1 {
-background: purple;
-color: white;
-padding: 10px;
+.bus {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 10px;
+  justify-content: center;
 }
 
-.onibus {
-display: grid;
-grid-template-columns: repeat(4, 60px);
-gap: 10px;
-justify-content: center;
-margin-top: 20px;
+.seat {
+  width: 60px;
+  height: 60px;
+  background: purple;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 8px;
 }
-
-.cadeira {
-width: 60px;
-height: 60px;
-background: purple;
-color: white;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 10px;
-cursor: pointer;
-}
-
 </style>
 </head>
 
 <body>
 
-<h1>ÔNIBUS 2 – EMA / ATALAIA</h1>
+<h2>Ônibus 2</h2>
 
-<div class="onibus" id="onibus"></div>
+<div class="bus">
 
-<script>
+<div class="seat" onclick="alert('Livre')">1</div>
+<div class="seat" onclick="alert('Livre')">2</div>
+<div class="seat" onclick="alert('Livre')">3</div>
+<div class="seat" onclick="alert('Livre')">4</div>
+<div class="seat" onclick="alert('Livre')">5</div>
+<div class="seat" onclick="alert('Livre')">6</div>
+<div class="seat" onclick="alert('Livre')">7</div>
+<div class="seat" onclick="alert('Livre')">8</div>
+<div class="seat" onclick="alert('Livre')">9</div>
+<div class="seat" onclick="alert('Livre')">10</div>
 
-let senha = "4633";
+<div class="seat" onclick="alert('Livre')">11</div>
+<div class="seat" onclick="alert('Livre')">12</div>
+<div class="seat" onclick="alert('Livre')">13</div>
+<div class="seat" onclick="alert('Livre')">14</div>
+<div class="seat" onclick="alert('Livre')">15</div>
+<div class="seat" onclick="alert('Livre')">16</div>
+<div class="seat" onclick="alert('Livre')">17</div>
+<div class="seat" onclick="alert('Livre')">18</div>
+<div class="seat" onclick="alert('Livre')">19</div>
+<div class="seat" onclick="alert('Livre')">20</div>
 
-let onibus = document.getElementById("onibus");
+<div class="seat" onclick="alert('Livre')">21</div>
+<div class="seat" onclick="alert('Livre')">22</div>
+<div class="seat" onclick="alert('Livre')">23</div>
+<div class="seat" onclick="alert('Livre')">24</div>
+<div class="seat" onclick="alert('Livre')">25</div>
+<div class="seat" onclick="alert('Livre')">26</div>
+<div class="seat" onclick="alert('Livre')">27</div>
+<div class="seat" onclick="alert('Livre')">28</div>
+<div class="seat" onclick="alert('Livre')">29</div>
+<div class="seat" onclick="alert('Livre')">30</div>
 
-for (let i = 1; i <= 50; i++) {
+<div class="seat" onclick="alert('Livre')">31</div>
+<div class="seat" onclick="alert('Livre')">32</div>
+<div class="seat" onclick="alert('Livre')">33</div>
+<div class="seat" onclick="alert('Livre')">34</div>
+<div class="seat" onclick="alert('Livre')">35</div>
+<div class="seat" onclick="alert('Livre')">36</div>
+<div class="seat" onclick="alert('Livre')">37</div>
+<div class="seat" onclick="alert('Livre')">38</div>
+<div class="seat" onclick="alert('Livre')">39</div>
+<div class="seat" onclick="alert('Livre')">40</div>
 
-let div = document.createElement("div");
-div.className = "cadeira";
+<div class="seat" onclick="alert('Livre')">41</div>
+<div class="seat" onclick="alert('Livre')">42</div>
+<div class="seat" onclick="alert('Livre')">43</div>
+<div class="seat" onclick="alert('Livre')">44</div>
+<div class="seat" onclick="alert('Livre')">45</div>
+<div class="seat" onclick="alert('Livre')">46</div>
+<div class="seat" onclick="alert('Livre')">47</div>
+<div class="seat" onclick="alert('Livre')">48</div>
+<div class="seat" onclick="alert('Livre')">49</div>
+<div class="seat" onclick="alert('Livre')">50</div>
 
-let salvo = localStorage.getItem("cadeira"+i);
-
-if (salvo) {
-div.innerHTML = salvo;
-} else {
-div.innerHTML = i;
-}
-
-div.onclick = function () {
-
-let ver = localStorage.getItem("cadeira"+i);
-
-if (ver) {
-alert("Cadeira ocupada por: " + ver);
-} else {
-alert("Cadeira livre");
-}
-
-let s = prompt("Senha para editar:");
-
-if (s !== senha) {
-return;
-}
-
-let nome = prompt("Nome:");
-
-if (nome) {
-localStorage.setItem("cadeira"+i, nome);
-div.innerHTML = nome;
-}
-
-};
-
-onibus.appendChild(div);
-
-}
-
-</script>
+</div>
 
 </body>
 </html>
