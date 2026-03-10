@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ônibus 2 - EMA / ATALAIA</title>
+
+<style>
+
+body {
+font-family: Arial;
+text-align: center;
+background: #f2f2f2;
+}
+
+h1 {
+background: purple;
+color: white;
+padding: 10px;
+}
+
+.onibus {
+display: grid;
+grid-template-columns: repeat(4, 60px);
+gap: 10px;
+justify-content: center;
+margin-top: 20px;
+}
+
+.cadeira {
+width: 60px;
+height: 60px;
+background: purple;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 10px;
+cursor: pointer;
+}
+
+.cadeira.ocupado {
+background: black;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>ÔNIBUS 2 – EMA / ATALAIA</h1>
+
+<div class="onibus">
+
+<script>
+
+for (let i = 1; i <= 50; i++) {
+document.write("<div class='cadeira' onclick='ocupar(this)'>" + i + "</div>");
+}
+
+function ocupar(el) {
+if (el.classList.contains("ocupado")) {
+el.classList.remove("ocupado");
+el.innerHTML = el.getAttribute("data-num");
+} else {
+let nome = prompt("Nome da pessoa:");
+if (nome) {
+el.setAttribute("data-num", el.innerHTML);
+el.innerHTML = nome;
+el.classList.add("ocupado");
+}
+}
+}
+
+</script>
+
+</div>
+
+</body>
+</html>
