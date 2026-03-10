@@ -38,10 +38,6 @@ border-radius: 10px;
 cursor: pointer;
 }
 
-.cadeira.ocupado {
-background: black;
-}
-
 </style>
 </head>
 
@@ -49,42 +45,57 @@ background: black;
 
 <h1>ÔNIBUS 2 – EMA / ATALAIA</h1>
 
-<div class="onibus">
+<div class="onibus" id="onibus"></div>
 
 <script>
 
 let senha = "4633";
 
+let onibus = document.getElementById("onibus");
+
 for (let i = 1; i <= 50; i++) {
-document.write("<div class='cadeira' onclick='ocupar(this)'>" + i + "</div>");
+
+let div = document.createElement("div");
+div.className = "cadeira";
+
+let salvo = localStorage.getItem("cadeira"+i);
+
+if (salvo) {
+div.innerHTML = salvo;
+} else {
+div.innerHTML = i;
 }
 
-function ocupar(el) {
+div.onclick = function () {
 
-let s = prompt("Digite a senha:");
+let ver = localStorage.getItem("cadeira"+i);
+
+if (ver) {
+alert("Cadeira ocupada por: " + ver);
+} else {
+alert("Cadeira livre");
+}
+
+let s = prompt("Senha para editar:");
 
 if (s !== senha) {
-alert("Senha errada!");
 return;
 }
 
-if (el.classList.contains("ocupado")) {
-el.classList.remove("ocupado");
-el.innerHTML = el.getAttribute("data-num");
-} else {
-let nome = prompt("Nome da pessoa:");
+let nome = prompt("Nome:");
+
 if (nome) {
-el.setAttribute("data-num", el.innerHTML);
-el.innerHTML = nome;
-el.classList.add("ocupado");
+localStorage.setItem("cadeira"+i, nome);
+div.innerHTML = nome;
 }
-}
+
+};
+
+onibus.appendChild(div);
 
 }
 
 </script>
-
-</div>
 
 </body>
 </html>
