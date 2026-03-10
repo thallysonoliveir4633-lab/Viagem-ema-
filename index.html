@@ -53,11 +53,21 @@ background: black;
 
 <script>
 
+let senha = "4633";
+
 for (let i = 1; i <= 50; i++) {
 document.write("<div class='cadeira' onclick='ocupar(this)'>" + i + "</div>");
 }
 
 function ocupar(el) {
+
+let s = prompt("Digite a senha:");
+
+if (s !== senha) {
+alert("Senha errada!");
+return;
+}
+
 if (el.classList.contains("ocupado")) {
 el.classList.remove("ocupado");
 el.innerHTML = el.getAttribute("data-num");
@@ -69,6 +79,7 @@ el.innerHTML = nome;
 el.classList.add("ocupado");
 }
 }
+
 }
 
 </script>
